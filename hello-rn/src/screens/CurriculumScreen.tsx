@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, Linking, TouchableOpacity } from 'react-native';
 
 const PROFILE_IMAGE = require('../../assets/suafoto.jpg'); 
 
@@ -15,8 +15,24 @@ const CurriculumScreen: React.FC = () => {
         />
       
         <Text style={styles.name}>Matheus Willian</Text> 
-        <Text style={styles.title}>Desenvolvedor Full stack| Em Transição de Carreira</Text>
+        <Text style={styles.title}>Desenvolvedor Full stack</Text>
       </View>
+{/* NOVO BLOCO PARA OS LINKS */}
+    <View style={styles.linkContainer}>
+        {/* Link 1: GITHUB */}
+        <TouchableOpacity onPress={() => Linking.openURL('https://github.com/matheus96-cr')}>
+            <Text style={styles.linkText}>GitHub</Text>
+        </TouchableOpacity>
+        
+        {/* Um separador visual (opcional) */}
+        <Text style={styles.linkSeparator}>|</Text> 
+        
+        {/* Link 2: LINKEDIN */}
+        <TouchableOpacity onPress={() => Linking.openURL('https://www.linkedin.com/in/matheus-willian-828710324/')}>
+            <Text style={styles.linkText}>LinkedIn</Text>
+        </TouchableOpacity>
+    </View>
+
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Resumo Profissional</Text>
@@ -31,19 +47,38 @@ const CurriculumScreen: React.FC = () => {
         <View style={styles.experienceItem}>
           <Text style={styles.jobTitle}>Estagiário de informatica</Text>
           <Text style={styles.company}>enjoy - (2022/2024)</Text>
-          <Text style={styles.jobTitle}>Estagiário de Robótica educacional</Text>
-          <Text style={styles.company}>CENTRO DE EDUCAÇÃO, TECNOLOGIA E CIDADANIA(CETEC) - (Out/2025)</Text>
           <Text style={styles.jobDescription}>
-            Desenvolvimento completo de um aplicativo de currículo usando React Native e Expo, focando em componentes reutilizáveis, estilização moderna e layout responsivo para diferentes dispositivos móveis.
-          </Text>
+        - Instrução e mentoria: Ministrei aulas de informática (do nível básico ao intermediário), capacitando alunos em ferramentas essenciais. 
+    </Text>
+    <Text style={styles.jobDescription}>
+        - Suporte Técnico: Realizei diagnóstico e resolução de problemas de hardware e software , minimizando o tempo de inatividade do equipamento.
+    </Text>
+    <Text style={styles.jobDescription}>
+        - Comunicação e Didática: Desenvolvi habilidades de comunicação clara e didática, adaptando a linguagem técnica para diferentes níveis de aprendizado.
+    </Text>
+    
+          <View>
+    
+    <Text style={styles.jobTitle}>Estagiário de Robótica educacional</Text>
+    <Text style={styles.company}>CENTRO DE EDUCAÇÃO, TECNOLOGIA E CIDADANIA (CETEC) - (Out/2025)</Text>
+    <Text style={styles.jobDescription}>
+        - Instrução Especializada: Responsável por ministrar aulas práticas sobre o robô humanoide NAO, capacitando alunos nos fundamentos da robótica, programação e interação humano-robô (HRI).
+    </Text>
+    <Text style={styles.jobDescription}>
+        - Desenvolvimento de Projetos: Execução de projetos práticos, aplicando linguagens de programação como o Python para desenvolver novas funcionalidades e comportamentos customizados para o robô.
+    </Text>
+    <Text style={styles.jobDescription}>
+        - Pesquisa Aplicada: Utilização de ferramentas e metodologias de pesquisa para otimizar a experiência de aprendizado e a eficácia dos projetos desenvolvidos.
+    </Text>
+          </View>
         </View>
       </View>
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Habilidades Chave</Text>
-        <Text style={styles.skillText}>**Linguagens:** JavaScript, TypeScript, HTML, CSS</Text>
-        <Text style={styles.skillText}>**Frameworks:** React Native, Expo</Text>
-        <Text style={styles.skillText}>**Ferramentas:** Git, GitHub, VS Code, Node.js</Text>
+        <Text style={styles.skillText}> Linguagens:  JavaScript, TypeScript, HTML, CSS, Python</Text>
+        <Text style={styles.skillText}> Frameworks:  React Native, Expo</Text>
+        <Text style={styles.skillText}> Ferramentas: Git, GitHub, VS Code, Node.js</Text>
       </View>
       
     </ScrollView>
@@ -79,6 +114,24 @@ const styles = StyleSheet.create({
     color: '#ecf0f1', // Texto cinza claro
     marginTop: 4,
   },
+  // NOVOS ESTILOS PARA OS LINKS
+  linkContainer: {
+    flexDirection: 'row', // Alinha os links lado a lado
+    marginTop: 10,
+    justifyContent: 'center', // Centraliza o bloco de links
+  },
+  linkText: {
+    color: '#000000ff', 
+    fontSize: 14,
+    fontWeight: 'bold',
+    textDecorationLine: 'underline', // Sublinhado
+    marginHorizontal: 10,
+  },
+  linkSeparator: {
+    color: '#000000ff',
+    fontSize: 14,
+  },
+  // FIM DOS ESTILOS DE LINK
   section: {
     padding: 20,
     marginTop: 1,
@@ -123,7 +176,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#444',
     marginBottom: 4,
-  }
+  },
 });
 
 export default CurriculumScreen;
